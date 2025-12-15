@@ -27,13 +27,13 @@ User Stories: US-01, US-02
 **Mô tả:** Xây dựng trang landing page cho ứng dụng
 
 **Công việc:**
-- [ ] Thiết kế layout landing page
-- [ ] Tạo header với logo và navigation
-- [ ] Tạo hero section
-- [ ] Tạo features section
-- [ ] Tạo footer
-- [ ] Responsive design cho mobile và tablet
-- [ ] Thêm routing cho landing page
+- [x] Thiết kế layout landing page
+- [x] Tạo header với logo và navigation
+- [x] Tạo hero section
+- [x] Tạo features section
+- [x] Tạo footer
+- [x] Responsive design cho mobile và tablet
+- [x] Thêm routing cho landing page
 
 **Acceptance Criteria:**
 - Landing page hiển thị đầy đủ các sections

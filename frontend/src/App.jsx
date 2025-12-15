@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import LandingPage from './pages/LandingPage';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -15,7 +16,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<div className="text-center p-8">Welcome to Virtual Try-on</div>} />
+          <Route path="/" element={<LandingPage />} />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>

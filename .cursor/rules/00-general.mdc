@@ -6,9 +6,43 @@ alwaysApply: true
 .cursor/: stores automation rules and commands.
   - rules/: development rules.
   - commands/: automation commands.
+backend/: backend API server.
+  - src/
+    - config/: configuration files (env, supabase, constants).
+    - controllers/: request handlers (validate input, parse request, send response).
+    - services/: business logic layer.
+    - repositories/: database access layer (Supabase client/SQL).
+    - middlewares/: auth, error handling, validation.
+    - routes/: API route definitions.
+    - utils/: utility functions (errors, response helpers).
+  - package.json: backend dependencies and scripts.
+  - .env.example: environment variables template.
+frontend/: React frontend application.
+  - src/
+    - components/: reusable UI components.
+      - Header.jsx: landing page header with logo and navigation.
+      - Hero.jsx: landing page hero section.
+      - Features.jsx: landing page features section.
+      - Footer.jsx: landing page footer.
+    - pages/: route page components.
+      - LandingPage.jsx: main landing page.
+    - features/: feature-based modules.
+    - services/: API service definitions.
+      - api.js: API service definitions.
+    - hooks/: custom React hooks.
+    - utils/: utility functions (cn, formatters, etc.).
+      - cn.js: className utility function.
+    - assets/: static assets (images, fonts, etc.).
+    - App.jsx: main app component with routing.
+    - main.jsx: app entry point.
+    - index.css: global styles.
+  - package.json: frontend dependencies and scripts.
+  - vite.config.js: Vite configuration.
+  - .env.example: environment variables template.
 README.md: project documentation.
 .gitignore: git ignore file.
 sprints/: user stories and sprint backlog (US-01.md, US-02.md, sprint1.md, PB.md).
+PB.md: product backlog.
 
 => Always use the structure above to understand the project when writing code. 
 => When creating new files or folders, place them in the appropriate location according to this structure. 
