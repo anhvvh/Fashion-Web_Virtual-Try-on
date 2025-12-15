@@ -47,11 +47,11 @@ User Stories: US-01, US-02
 **Mô tả:** Thiết kế schema cho sprint 1 (auth/profile)
 
 **Công việc:**
-- [ ] Xác định bảng cho các tính năng trong sprint 1 và các cột cần thiết
-- [ ] Thiết lập indexes và constraints
-- [ ] Viết script/migration SQL trên Supabase
-- [ ] Thiết kế storage cho các tính năng trong sprint 1 trên Supabase
-- [ ] Thiết kế script/migration cho storage
+- [x] Xác định bảng cho các tính năng trong sprint 1 và các cột cần thiết
+- [x] Thiết lập indexes và constraints
+- [x] Viết script/migration SQL trên Supabase
+- [x] Thiết kế storage cho các tính năng trong sprint 1 trên Supabase
+- [x] Thiết kế script/migration cho storage
 
 **Acceptance Criteria:**
 - Schema `profiles` được tạo trên Supabase, có unique email

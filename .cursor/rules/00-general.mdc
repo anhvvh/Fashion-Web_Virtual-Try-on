@@ -42,6 +42,13 @@ frontend/: React frontend application.
 README.md: project documentation.
 .gitignore: git ignore file.
 sprints/: user stories and sprint backlog (US-01.md, US-02.md, sprint1.md, PB.md).
+design/: database schema design documentation.
+  - schema-sprint1.md: database schema design for Sprint 1.
+migrations/: SQL migration scripts for database.
+  - 001_create_profiles_table.sql: create profiles table migration.
+  - 002_create_storage_bucket.sql: create storage bucket migration.
+  - 003_seed_sample_data.sql: seed sample data for development.
+  - README.md: migration guide and instructions.
 PB.md: product backlog.
 
 => Always use the structure above to understand the project when writing code. 
