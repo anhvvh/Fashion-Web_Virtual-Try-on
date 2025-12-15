@@ -9,7 +9,10 @@ build/
 
 # Environment and credentials
 .env
-.env.*
+.env.local
+.env.development
+.env.production
+!.env.example
 
 # Logs and debug
 npm-debug.log*

@@ -1,31 +1,136 @@
-# Try-on (GenAI4Dev K1)
+# Virtual Try-on
 
-## Giới thiệu
-Dự án “Try-on” là ứng dụng thử đồ (virtual try-on) theo hướng GenA
-- Backlog tổng quan: xem `PB.md`
-- Sprint 1 backlog: xem `sprints/sprint1.md`
-- User stories chi tiết: xem `sprints/US-01.md` và `sprints/US-02.md`
+Ứng dụng thử đồ ảo (Virtual Try-on) sử dụng GenAI.
 
-## Tech stack (định hướng)
-- Frontend: React + Vite + TailwindCSS
-- Backend: Node.js + Express
-- Database & Storage: Supabase
-- Auth: JWT
+## Tech Stack
 
-## Cấu trúc repo
-- `.cursor/`: rules/commands cho Cursor
-- `sprints/`: user stories + sprint backlog
-- `PB.md`: product backlog
-- `README.md`: tài liệu dự án
+- **Frontend:** React + Vite + TailwindCSS
+- **Backend:** Node.js + Express
+- **Database & Storage:** Supabase
+- **Authentication:** JWT
 
-## Hướng dẫn vibe code
-- Bám theo các tasks liệt kê trong sprint backlog, hãy ra lệnh cho AI thực hiện từng task một. Nhớ @ các files liên quan tới tasks khi ra lệnh.
-- Sử dụng các commands hợp lý trong quá trình vibe code.
-- Prompt mẫu hoàn thành task 1: 
+## Cấu trúc Project
+
 ```
-Hãy triển khai Task 1 trong @sprints/sprint1.md: Thiết lập Project.
+├── backend/                # Backend API
+│   ├── src/
+│   │   ├── config/        # Cấu hình (env, supabase, constants)
+│   │   ├── controllers/   # Request handlers
+│   │   ├── services/      # Business logic
+│   │   ├── repositories/  # Database access
+│   │   ├── middlewares/   # Auth, error handling
+│   │   ├── routes/        # API routes
+│   │   └── utils/         # Utilities
+│   └── package.json
+├── frontend/              # Frontend React app
+│   ├── src/
+│   │   ├── components/    # Reusable UI components
+│   │   ├── pages/         # Route pages
+│   │   ├── features/      # Feature modules
+│   │   ├── services/      # API services
+│   │   ├── hooks/         # Custom hooks
+│   │   ├── utils/         # Utilities
+│   │   └── assets/        # Static assets
+│   └── package.json
+├── sprints/               # Sprint documentation
+├── .cursor/               # Cursor rules & commands
+└── README.md
 ```
-- Prompt mẫu hoàn thành task 2: 
+
+## Yêu cầu
+
+- Node.js >= 18
+- npm >= 9
+- Tài khoản Supabase
+
+## Cài đặt
+
+### 1. Clone repository
+
+```bash
+git clone https://github.com/anhvvh/Fashion-Web_Virtual-Try-on.git
+cd Fashion-Web_Virtual-Try-on
 ```
-@PB.md, @US-01.md, @US-02.md, @sprints/sprint1.md: Hãy triển khai Task 2 trong @sprints/sprint1.md: Tạo Landing Page.
+
+### 2. Cấu hình Backend
+
+```bash
+cd backend
+npm install
+cp .env.example .env
 ```
+
+Cập nhật file `.env` với thông tin Supabase và JWT secret:
+
+```env
+PORT=3000
+NODE_ENV=development
+SUPABASE_URL=your_supabase_url
+SUPABASE_ANON_KEY=your_supabase_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
+JWT_SECRET=your_jwt_secret_key
+JWT_EXPIRES_IN=7d
+CORS_ORIGIN=http://localhost:5173
+```
+
+### 3. Cấu hình Frontend
+
+```bash
+cd frontend
+npm install
+cp .env.example .env
+```
+
+### 4. Chạy ứng dụng
+
+**Backend (Terminal 1):**
+
+```bash
+cd backend
+npm run dev
+```
+
+Backend chạy tại: http://localhost:3000
+
+**Frontend (Terminal 2):**
+
+```bash
+cd frontend
+npm run dev
+```
+
+Frontend chạy tại: http://localhost:5173
+
+## Scripts
+
+### Backend
+
+| Command | Mô tả |
+|---------|-------|
+| `npm run dev` | Chạy development server với nodemon |
+| `npm start` | Chạy production server |
+| `npm run lint` | Kiểm tra linting |
+| `npm run lint:fix` | Sửa lỗi linting |
+| `npm run format` | Format code với Prettier |
+
+### Frontend
+
+| Command | Mô tả |
+|---------|-------|
+| `npm run dev` | Chạy development server |
+| `npm run build` | Build production |
+| `npm run preview` | Preview production build |
+| `npm run lint` | Kiểm tra linting |
+| `npm run format` | Format code với Prettier |
+
+## API Endpoints
+
+Base URL: `http://localhost:3000/api/v1`
+
+| Method | Endpoint | Mô tả |
+|--------|----------|-------|
+| GET | `/health` | Health check |
+
+## License
+
+ISC
