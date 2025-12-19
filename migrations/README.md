@@ -16,8 +16,9 @@ Thư mục chứa các script migration SQL cho database Supabase.
 Chạy các file theo thứ tự số:
 
 1. `001_create_profiles_table.sql` - Tạo bảng profiles
-2. `002_create_storage_bucket.sql` - Tạo storage bucket (cần thực hiện qua Dashboard hoặc CLI)
-3. `003_seed_sample_data.sql` - Tạo dữ liệu mẫu (chỉ dùng trong development)
+2. `004_enable_rls_profiles.sql` - Bật RLS và tạo policies cho bảng profiles
+3. `002_create_storage_bucket.sql` - Tạo storage bucket (cần thực hiện qua Dashboard hoặc CLI)
+4. `003_seed_sample_data.sql` - Tạo dữ liệu mẫu (chỉ dùng trong development)
 
 ### 3. Lưu ý quan trọng
 
@@ -38,6 +39,11 @@ TRUNCATE TABLE profiles CASCADE;
 DROP POLICY IF EXISTS "Users can upload their own full-body images" ON storage.objects;
 DROP POLICY IF EXISTS "Users can view their own full-body images" ON storage.objects;
 DROP POLICY IF EXISTS "Users can delete their own full-body images" ON storage.objects;
+
+-- Rollback 004 (xóa RLS policies và tắt RLS)
+DROP POLICY IF EXISTS "Users can view their own profile" ON profiles;
+DROP POLICY IF EXISTS "Users can update their own profile" ON profiles;
+ALTER TABLE profiles DISABLE ROW LEVEL SECURITY;
 
 -- Rollback 001
 DROP TRIGGER IF EXISTS update_profiles_updated_at ON profiles;

@@ -125,15 +125,15 @@ User Stories: US-01, US-02
 **Mô tả:** Cho phép user cập nhật thông tin cá nhân
 
 **Công việc:**
-- [ ] Tạo API endpoint lấy thông tin user (GET /api/user/profile)
-- [ ] Tạo API endpoint cập nhật profile (PUT /api/user/profile)
-- [ ] Implement JWT verification middleware
-- [ ] Tạo UI profile page
-- [ ] Form cập nhật thông tin (name, email, phone, etc.)
-- [ ] Upload avatar (sử dụng Supabase Storage)
-- [ ] Validate dữ liệu cập nhật
-- [ ] Xử lý upload file
-- [ ] Update UI sau khi save thành công
+- [x] Tạo API endpoint lấy thông tin user (GET /api/user/profile)
+- [x] Tạo API endpoint cập nhật profile (PUT /api/user/profile)
+- [x] Implement JWT verification middleware
+- [x] Tạo UI profile page
+- [x] Form cập nhật thông tin (name, email, phone, etc.)
+- [x] Upload avatar (sử dụng Supabase Storage)
+- [x] Validate dữ liệu cập nhật
+- [x] Xử lý upload file
+- [x] Update UI sau khi save thành công
 
 **Acceptance Criteria:**
 - User có thể xem thông tin profile

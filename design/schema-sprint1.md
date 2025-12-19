@@ -35,6 +35,20 @@ Bảng lưu thông tin người dùng bao gồm thông tin đăng nhập và h�
 ### Trigger
 - Trigger tự động cập nhật `updated_at` khi bản ghi được cập nhật
 
+### Row Level Security (RLS)
+- **RLS Enabled:** Có
+- **Policies:**
+  - **SELECT:** Người dùng chỉ có thể xem profile của chính mình (dựa trên JWT claim `id`)
+  - **UPDATE:** Người dùng chỉ có thể cập nhật profile của chính mình, không được thay đổi `email` và `password_hash`
+  - **INSERT:** Không cho phép INSERT trực tiếp từ client (chỉ qua backend API với service role key)
+  - **DELETE:** Không cho phép DELETE từ client (chỉ admin/backend mới có thể xóa)
+
+**Lưu ý:** 
+- Vì project sử dụng custom JWT authentication (không dùng Supabase Auth), các policies sử dụng `current_setting('request.jwt.claims')` để đọc claim `id` từ JWT token
+- Backend sử dụng service role key sẽ bypass RLS (đây là cách project hiện tại hoạt động)
+- Tất cả database access đều qua backend API, RLS policies hoạt động như lớp bảo vệ phụ
+- Xem thêm hướng dẫn chi tiết trong `design/rls-policies-guide.md`
+
 ## Storage: full-body-images
 
 ### Mô tả
