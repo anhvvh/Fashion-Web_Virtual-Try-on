@@ -1,6 +1,8 @@
 import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 import { profileRepository } from '../repositories/profile_repository.js';
-import { ValidationError, ConflictError } from '../utils/app_error.js';
+import { ValidationError, ConflictError, AuthenticationError } from '../utils/app_error.js';
+import { env } from '../config/env.js';
 
 const MIN_PASSWORD_LENGTH = 8;
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -70,6 +72,53 @@ export const authService = {
       fullBodyImageUrl: newProfile.full_body_image_url,
       createdAt: newProfile.created_at,
       updatedAt: newProfile.updated_at,
+    };
+  },
+
+  async login(loginData) {
+    const { email, password } = loginData;
+
+    const validatedEmail = validateEmail(email);
+    const validatedPassword = validatePassword(password);
+
+    const profile = await profileRepository.findByEmail(validatedEmail);
+    
+    if (!profile) {
+      throw new AuthenticationError('Email hoặc mật khẩu sai');
+    }
+
+    const isPasswordValid = await bcrypt.compare(validatedPassword, profile.password_hash);
+    
+    if (!isPasswordValid) {
+      throw new AuthenticationError('Email hoặc mật khẩu sai');
+    }
+
+    const tokenPayload = {
+      id: profile.id,
+      email: profile.email,
+    };
+
+    let token;
+    try {
+      token = jwt.sign(tokenPayload, env.jwtSecret, {
+        expiresIn: env.jwtExpiresIn,
+      });
+    } catch (error) {
+      throw new Error('Lỗi hệ thống khi tạo token');
+    }
+
+    return {
+      token,
+      user: {
+        id: profile.id,
+        email: profile.email,
+        displayName: profile.display_name,
+        height: profile.height,
+        weight: profile.weight,
+        fullBodyImageUrl: profile.full_body_image_url,
+        createdAt: profile.created_at,
+        updatedAt: profile.updated_at,
+      },
     };
   },
 };

@@ -14,3 +14,17 @@ export const validateRegister = (req, _res, next) => {
   next();
 };
 
+export const validateLogin = (req, _res, next) => {
+  const { email, password } = req.body;
+
+  if (!email || !password) {
+    return next(new ValidationError('Email và mật khẩu là bắt buộc'));
+  }
+
+  if (typeof email !== 'string' || typeof password !== 'string') {
+    return next(new ValidationError('Dữ liệu đầu vào không hợp lệ'));
+  }
+
+  next();
+};
+

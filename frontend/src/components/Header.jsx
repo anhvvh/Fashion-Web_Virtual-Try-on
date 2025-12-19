@@ -1,6 +1,33 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { authService } from '../services/auth';
 
 export default function Header() {
+  const navigate = useNavigate();
+  const [user, setUser] = useState(null);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const checkAuth = () => {
+      const currentUser = authService.getUser();
+      const authenticated = authService.isAuthenticated();
+      setUser(currentUser);
+      setIsAuthenticated(authenticated);
+    };
+
+    checkAuth();
+    
+    const interval = setInterval(checkAuth, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleLogout = () => {
+    authService.logout();
+    setUser(null);
+    setIsAuthenticated(false);
+    navigate('/');
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -27,18 +54,34 @@ export default function Header() {
             >
               Tính năng
             </Link>
-            <Link
-              to="/login"
-              className="text-gray-700 hover:text-pink-600 transition-colors font-medium"
-            >
-              Đăng nhập
-            </Link>
-            <Link
-              to="/register"
-              className="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-6 py-2 rounded-full hover:from-pink-600 hover:to-purple-700 transition-all shadow-md hover:shadow-lg"
-            >
-              Đăng ký
-            </Link>
+            {isAuthenticated ? (
+              <>
+                <span className="text-gray-700 font-medium">
+                  {user?.displayName || user?.email || 'User'}
+                </span>
+                <button
+                  onClick={handleLogout}
+                  className="text-gray-700 hover:text-pink-600 transition-colors font-medium"
+                >
+                  Đăng xuất
+                </button>
+              </>
+            ) : (
+              <>
+                <Link
+                  to="/login"
+                  className="text-gray-700 hover:text-pink-600 transition-colors font-medium"
+                >
+                  Đăng nhập
+                </Link>
+                <Link
+                  to="/register"
+                  className="bg-gradient-to-r from-pink-500 to-purple-600 text-white px-6 py-2 rounded-full hover:from-pink-600 hover:to-purple-700 transition-all shadow-md hover:shadow-lg"
+                >
+                  Đăng ký
+                </Link>
+              </>
+            )}
           </div>
 
           <div className="md:hidden">

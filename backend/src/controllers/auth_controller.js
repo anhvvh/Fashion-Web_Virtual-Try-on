@@ -18,5 +18,20 @@ export const authController = {
       return next(error);
     }
   },
+
+  async login(req, res, next) {
+    try {
+      const { email, password } = req.body;
+
+      const result = await authService.login({
+        email,
+        password,
+      });
+
+      return sendSuccess(res, result, HTTP_STATUS.OK);
+    } catch (error) {
+      return next(error);
+    }
+  },
 };
 

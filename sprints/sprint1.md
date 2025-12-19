@@ -102,15 +102,15 @@ User Stories: US-01, US-02
 **Mô tả:** Xây dựng chức năng đăng nhập
 
 **Công việc:**
-- [ ] Tạo API endpoint đăng nhập (POST /api/auth/login)
-- [ ] Verify email và password
-- [ ] Generate JWT token khi đăng nhập thành công
-- [ ] Tạo UI form đăng nhập
-- [ ] Kết nối frontend với API đăng nhập
-- [ ] Lưu JWT token (localStorage/cookie)
-- [ ] Implement logout functionality
-- [ ] Protected routes setup
-- [ ] Xử lý error messages
+- [x] Tạo API endpoint đăng nhập (POST /api/auth/login)
+- [x] Verify email và password
+- [x] Generate JWT token khi đăng nhập thành công
+- [x] Tạo UI form đăng nhập
+- [x] Kết nối frontend với API đăng nhập
+- [x] Lưu JWT token (localStorage/cookie)
+- [x] Implement logout functionality
+- [x] Protected routes setup
+- [x] Xử lý error messages
 
 **Acceptance Criteria:**
 - User có thể đăng nhập với email/password
