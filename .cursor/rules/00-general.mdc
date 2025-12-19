@@ -64,6 +64,7 @@ README.md: project documentation.
 sprints/: user stories and sprint backlog (US-01.md, US-02.md, sprint1.md, PB.md).
 design/: database schema and flow design documentation.
   - schema-sprint1.md: database schema design for Sprint 1.
+  - rls-policies-guide.md: Row Level Security (RLS) policies guide for profiles table.
   - 1.1-user-registration-flow.md: user registration flow diagram.
   - 1.2-user-login-flow.md: user login flow diagram.
   - 1.3-profile-get-update-flow.md: profile get/update flow diagram.
@@ -72,6 +73,7 @@ migrations/: SQL migration scripts for database.
   - 001_create_profiles_table.sql: create profiles table migration.
   - 002_create_storage_bucket.sql: create storage bucket migration.
   - 003_seed_sample_data.sql: seed sample data for development.
+  - 004_enable_rls_profiles.sql: enable RLS and create policies for profiles table.
   - README.md: migration guide and instructions.
 PB.md: product backlog.
 
