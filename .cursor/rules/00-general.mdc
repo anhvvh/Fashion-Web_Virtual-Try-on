@@ -10,10 +10,15 @@ backend/: backend API server.
   - src/
     - config/: configuration files (env, supabase, constants).
     - controllers/: request handlers (validate input, parse request, send response).
+      - auth_controller.js: authentication controller (register, login).
     - services/: business logic layer.
+      - auth_service.js: authentication business logic.
     - repositories/: database access layer (Supabase client/SQL).
+      - profile_repository.js: profile data access layer.
     - middlewares/: auth, error handling, validation.
+      - validation.js: request validation middleware.
     - routes/: API route definitions.
+      - auth_routes.js: authentication routes.
     - utils/: utility functions (errors, response helpers).
   - package.json: backend dependencies and scripts.
   - .env.example: environment variables template.
@@ -24,11 +29,14 @@ frontend/: React frontend application.
       - Hero.jsx: landing page hero section.
       - Features.jsx: landing page features section.
       - Footer.jsx: landing page footer.
+      - Layout.jsx: layout wrapper component.
     - pages/: route page components.
       - LandingPage.jsx: main landing page.
+      - RegisterPage.jsx: user registration page.
     - features/: feature-based modules.
     - services/: API service definitions.
       - api.js: API service definitions.
+      - auth.js: authentication service (register, login, logout).
     - hooks/: custom React hooks.
     - utils/: utility functions (cn, formatters, etc.).
       - cn.js: className utility function.
@@ -42,9 +50,9 @@ frontend/: React frontend application.
 README.md: project documentation.
 .gitignore: git ignore file.
 sprints/: user stories and sprint backlog (US-01.md, US-02.md, sprint1.md, PB.md).
-design/: database schema and flow design documentation.
+design/: database schema design documentation.
   - schema-sprint1.md: database schema design for Sprint 1.
-  - flow-sprint1.md: flow design for authentication and profile management (Sprint 1).
+  - flows-sprint1.md: flow design diagrams for Sprint 1 (authentication and profile).
 migrations/: SQL migration scripts for database.
   - 001_create_profiles_table.sql: create profiles table migration.
   - 002_create_storage_bucket.sql: create storage bucket migration.
