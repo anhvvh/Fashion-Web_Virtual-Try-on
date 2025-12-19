@@ -10,11 +10,21 @@ backend/: backend API server.
   - src/
     - config/: configuration files (env, supabase, constants).
     - controllers/: request handlers (validate input, parse request, send response).
+      - auth_controller.js: authentication controller (register, login).
     - services/: business logic layer.
+      - auth_service.js: authentication service (register, login).
     - repositories/: database access layer (Supabase client/SQL).
+      - profile_repository.js: profile repository (findByEmail, create).
     - middlewares/: auth, error handling, validation.
+      - auth.js: JWT authentication middleware.
+      - error_handler.js: error handling middleware.
+      - validation.js: request validation middleware.
     - routes/: API route definitions.
+      - index.js: main routes file.
+      - auth_routes.js: authentication routes.
     - utils/: utility functions (errors, response helpers).
+      - app_error.js: custom error classes.
+      - response.js: response helpers.
   - package.json: backend dependencies and scripts.
   - .env.example: environment variables template.
 frontend/: React frontend application.
@@ -26,9 +36,11 @@ frontend/: React frontend application.
       - Footer.jsx: landing page footer.
     - pages/: route page components.
       - LandingPage.jsx: main landing page.
+      - RegisterPage.jsx: user registration page.
     - features/: feature-based modules.
     - services/: API service definitions.
       - api.js: API service definitions.
+      - auth.js: authentication service (register, login).
     - hooks/: custom React hooks.
     - utils/: utility functions (cn, formatters, etc.).
       - cn.js: className utility function.
