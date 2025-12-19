@@ -65,11 +65,11 @@ User Stories: US-01, US-02
 **Mô tả:** Xác định luồng auth/profile cho sprint 1
 
 **Công việc:**
-- [ ] Phác thảo flow đăng ký (register)
-- [ ] Phác thảo flow đăng nhập (login + JWT)
-- [ ] Phác thảo flow lấy/cập nhật profile và upload avatar (Storage)
-- [ ] Phác thảo flow logout và bảo vệ routes
-- [ ] Lưu lại sơ đồ/ngắn gọn trong thư mục thiết kế
+- [x] Phác thảo flow đăng ký (register)
+- [x] Phác thảo flow đăng nhập (login + JWT)
+- [x] Phác thảo flow lấy/cập nhật profile và upload avatar (Storage)
+- [x] Phác thảo flow logout và bảo vệ routes
+- [x] Lưu lại sơ đồ/ngắn gọn trong thư mục thiết kế
 
 **Acceptance Criteria:**
 - Có tài liệu flow rõ ràng cho register, login, profile (get/update), upload avatar, logout
