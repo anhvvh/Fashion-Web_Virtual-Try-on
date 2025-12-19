@@ -1,5 +1,6 @@
 import { sendError } from '../utils/response.js';
 import { env } from '../config/env.js';
+import { ValidationError } from '../utils/app_error.js';
 
 export const errorHandler = (err, _req, res, _next) => {
   if (env.nodeEnv === 'development') {
@@ -8,6 +9,17 @@ export const errorHandler = (err, _req, res, _next) => {
 
   if (err.isOperational) {
     return sendError(res, err);
+  }
+
+  if (err.name === 'MulterError') {
+    if (err.code === 'LIMIT_FILE_SIZE') {
+      return sendError(res, new ValidationError('Kích thước file không được vượt quá 5MB'));
+    }
+    return sendError(res, new ValidationError(err.message || 'Lỗi khi upload file'));
+  }
+
+  if (err.message && err.message.includes('Chỉ chấp nhận file ảnh')) {
+    return sendError(res, new ValidationError(err.message));
   }
 
   const internalError = {
