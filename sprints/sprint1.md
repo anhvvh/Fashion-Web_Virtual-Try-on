@@ -81,13 +81,13 @@ User Stories: US-01, US-02
 **Mô tả:** Xây dựng chức năng đăng ký tài khoản mới dựa trên flow đã chốt
 
 **Công việc:**
-- [ ] Tạo API endpoint đăng ký (POST /api/auth/register)
-- [ ] Validate dữ liệu đầu vào (email, password, etc.)
-- [ ] Hash password trước khi lưu
-- [ ] Tạo UI form đăng ký
-- [ ] Kết nối frontend với API đăng ký
-- [ ] Xử lý error và success messages
-- [ ] Email validation và unique check
+- [x] Tạo API endpoint đăng ký (POST /api/auth/register)
+- [x] Validate dữ liệu đầu vào (email, password, etc.)
+- [x] Hash password trước khi lưu
+- [x] Tạo UI form đăng ký
+- [x] Kết nối frontend với API đăng ký
+- [x] Xử lý error và success messages
+- [x] Email validation và unique check
 
 **Acceptance Criteria:**
 - User có thể đăng ký tài khoản mới
