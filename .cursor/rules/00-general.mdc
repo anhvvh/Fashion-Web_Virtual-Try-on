@@ -12,11 +12,14 @@ backend/: backend API server.
     - controllers/: request handlers (validate input, parse request, send response).
       - auth_controller.js: authentication controller (register, login).
       - profile_controller.js: profile controller (getProfile, updateProfile).
+      - categories_controller.js: categories controller (CRUD operations for categories).
     - services/: business logic layer.
       - auth_service.js: authentication service (register, login).
       - profile_service.js: profile service (getProfile, updateProfile with image upload).
+      - categories_service.js: categories service (CRUD operations with validation and slug generation).
     - repositories/: database access layer (Supabase client/SQL).
       - profile_repository.js: profile repository (findByEmail, findById, create, update).
+      - categories_repository.js: categories repository (findAll, findById, findBySlug, create, update, delete, countProducts).
     - middlewares/: auth, error handling, validation.
       - auth.js: JWT authentication middleware.
       - is_admin.js: admin role authorization middleware.
@@ -27,6 +30,7 @@ backend/: backend API server.
       - index.js: main routes file.
       - auth_routes.js: authentication routes.
       - user_routes.js: user profile routes (GET/PUT /api/user/profile).
+      - categories_routes.js: categories routes (GET/POST/PUT/DELETE /api/categories).
     - utils/: utility functions (errors, response helpers).
       - app_error.js: custom error classes.
       - response.js: response helpers.
