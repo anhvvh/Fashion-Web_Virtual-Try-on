@@ -83,18 +83,20 @@ User Stories: US-01, US-02
 **Công việc:**
 - [x] Tạo API endpoint đăng ký (POST /api/auth/register)
 - [x] Validate dữ liệu đầu vào (email, password, etc.)
-- [x] Hash password trước khi lưu
+- [x] Hash password trước khi lưu (dùng bcrypt, không dùng Supabase Auth)
 - [x] Tạo UI form đăng ký
 - [x] Kết nối frontend với API đăng ký
 - [x] Xử lý error và success messages
 - [x] Email validation và unique check
+- [x] Fix trigger function để auto-create profile
 
 **Acceptance Criteria:**
 - User có thể đăng ký tài khoản mới
-- Password được hash an toàn
+- Password được hash an toàn (qua bcrypt)
 - Validation hoạt động đúng
 - Error handling đầy đủ
 - Không cho phép email trùng lặp
+- Profile tự động được tạo khi đăng ký thành công
 
 ---
 
@@ -107,9 +109,9 @@ User Stories: US-01, US-02
 - [x] Generate JWT token khi đăng nhập thành công
 - [x] Tạo UI form đăng nhập
 - [x] Kết nối frontend với API đăng nhập
-- [x] Lưu JWT token (localStorage/cookie)
-- [x] Implement logout functionality
-- [x] Protected routes setup
+- [x] Lưu JWT token (localStorage)
+- [ ] Implement logout functionality
+- [ ] Protected routes setup
 - [x] Xử lý error messages
 
 **Acceptance Criteria:**
@@ -127,21 +129,26 @@ User Stories: US-01, US-02
 **Công việc:**
 - [x] Tạo API endpoint lấy thông tin user (GET /api/user/profile)
 - [x] Tạo API endpoint cập nhật profile (PUT /api/user/profile)
-- [x] Implement JWT verification middleware
+- [x] Tạo API endpoint upload ảnh toàn thân (POST /api/user/profile/photo)
+- [x] Implement JWT verification middleware (đã có sẵn)
 - [x] Tạo UI profile page
-- [x] Form cập nhật thông tin (name, email, phone, etc.)
-- [x] Upload avatar (sử dụng Supabase Storage)
-- [x] Validate dữ liệu cập nhật
-- [x] Xử lý upload file
+- [x] Form cập nhật thông tin (display_name, height_cm, weight_kg)
+- [x] Upload ảnh toàn thân (sử dụng Supabase Storage)
+- [x] Validate dữ liệu cập nhật (height: 100-250cm, weight: 30-250kg)
+- [x] Xử lý upload file với multer
 - [x] Update UI sau khi save thành công
+- [x] Tạo Dashboard component
+- [x] Tạo AuthenticatedHeader component cho UI thống nhất
+- [x] Tạo ProtectedRoute component
 
 **Acceptance Criteria:**
 - User có thể xem thông tin profile
-- User có thể cập nhật thông tin
-- Avatar upload hoạt động với Supabase Storage
-- Validation đầy đủ
-- Chỉ user đã login mới truy cập được
+- User có thể cập nhật thông tin (display_name, height_cm, weight_kg)
+- Upload ảnh toàn thân hoạt động với Supabase Storage
+- Validation đầy đủ (height: 100-250cm, weight: 30-250kg, file: jpg/jpeg/png, max 5MB)
+- Chỉ user đã login mới truy cập được (ProtectedRoute)
 - UI phản hồi khi save thành công/thất bại
+- Giao diện thống nhất giữa các trang đã đăng nhập
 
 ## Definition of Done
 - Code được review
