@@ -44,23 +44,26 @@ frontend/: React frontend application.
       - Features.jsx: landing page features section.
       - Footer.jsx: landing page footer.
       - ProtectedRoute.jsx: protected route wrapper component.
+      - CategoryForm.jsx: category form component for create/update (Sprint 2).
     - pages/: route page components.
       - LandingPage.jsx: main landing page.
       - RegisterPage.jsx: user registration page.
       - LoginPage.jsx: user login page.
       - ProfilePage.jsx: user profile page with update form and image upload.
+      - CategoriesPage.jsx: admin categories management page (Sprint 2).
     - features/: feature-based modules.
     - services/: API service definitions.
       - api.js: API service definitions.
       - auth.js: authentication service (register, login).
       - profile.js: profile service (getProfile, updateProfile).
+      - categories.js: categories service (getAllCategories, getCategoryById, createCategory, updateCategory, deleteCategory).
     - hooks/: custom React hooks.
     - utils/: utility functions (cn, formatters, etc.).
       - cn.js: className utility function.
     - assets/: static assets (images, fonts, etc.).
     - App.jsx: main app component with routing.
     - main.jsx: app entry point.
-    - index.css: global styles.
+    - index.css: global styles with design tokens.
   - package.json: frontend dependencies and scripts.
   - vite.config.js: Vite configuration.
   - .env.example: environment variables template.
@@ -77,6 +80,8 @@ design/: database schema and flow design documentation.
   - 1.2-user-login-flow.md: user login flow diagram.
   - 1.3-profile-get-update-flow.md: profile get/update flow diagram.
   - 1.4-logout-protected-routes-flow.md: logout and protected routes flow diagram.
+  - ui/: UI design documentation.
+    - guides.md: UI design guide (Minimal Nordic Style inspired by Sølve).
 migrations/: SQL migration scripts for database.
   - 001_create_profiles_table.sql: create profiles table migration.
   - 002_create_storage_bucket.sql: create storage bucket migration.

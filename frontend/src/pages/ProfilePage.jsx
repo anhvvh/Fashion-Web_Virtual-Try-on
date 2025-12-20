@@ -206,13 +206,16 @@ export default function ProfilePage() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      <main className="pt-20 pb-16">
+      <main className="pt-24 pb-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-2xl">
-          <div className="bg-white rounded-2xl shadow-lg p-8 mt-8">
-            <h1 className="text-3xl font-bold text-center mb-2 bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">
+          <div className="bg-white border border-gray-200 rounded-lg p-8 md:p-10">
+            <h1 
+              className="text-3xl md:text-4xl font-medium text-center mb-2 text-gray-900"
+              style={{ fontFamily: 'var(--font-display)' }}
+            >
               Hồ sơ của tôi
             </h1>
-            <p className="text-gray-600 text-center mb-8">Cập nhật thông tin cá nhân và ảnh toàn thân</p>
+            <p className="text-sm text-gray-600 text-center mb-8">Cập nhật thông tin cá nhân và ảnh toàn thân</p>
 
             {success && (
               <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
@@ -234,7 +237,7 @@ export default function ProfilePage() {
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-900 mb-2">
                   Email
                 </label>
                 <input
@@ -242,50 +245,50 @@ export default function ProfilePage() {
                   type="email"
                   value={user?.email || ''}
                   disabled
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 text-gray-500 cursor-not-allowed"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg bg-gray-50 text-gray-600 cursor-not-allowed text-sm"
                 />
-                <p className="mt-1 text-xs text-gray-500">Email không thể thay đổi</p>
+                <p className="mt-1.5 text-xs text-gray-500">Email không thể thay đổi</p>
               </div>
 
               <div>
-                <label htmlFor="displayName" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="displayName" className="block text-sm font-medium text-gray-900 mb-2">
                   Tên hiển thị
                 </label>
                 <input
                   id="displayName"
                   type="text"
                   {...register('displayName')}
-                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 ${
-                    errors.displayName ? 'border-red-300 focus:ring-red-500' : 'border-gray-300 focus:ring-pink-500'
+                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-1 transition-normal text-sm ${
+                    errors.displayName ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : 'border-gray-200 focus:border-gray-900 focus:ring-gray-900'
                   }`}
                   placeholder="Tên hiển thị (tùy chọn)"
                   disabled={isLoading}
                 />
-                {errors.displayName && <p className="mt-1 text-sm text-red-600">{errors.displayName.message}</p>}
+                {errors.displayName && <p className="mt-1.5 text-xs text-red-600">{errors.displayName.message}</p>}
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="height" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="height" className="block text-sm font-medium text-gray-900 mb-2">
                     Chiều cao (cm)
                   </label>
                   <input
                     id="height"
                     type="number"
                     {...register('height')}
-                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 ${
-                      errors.height ? 'border-red-300 focus:ring-red-500' : 'border-gray-300 focus:ring-pink-500'
+                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-1 transition-normal text-sm ${
+                      errors.height ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : 'border-gray-200 focus:border-gray-900 focus:ring-gray-900'
                     }`}
                     placeholder="100-250"
                     min="100"
                     max="250"
                     disabled={isLoading}
                   />
-                  {errors.height && <p className="mt-1 text-sm text-red-600">{errors.height.message}</p>}
+                  {errors.height && <p className="mt-1.5 text-xs text-red-600">{errors.height.message}</p>}
                 </div>
 
                 <div>
-                  <label htmlFor="weight" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="weight" className="block text-sm font-medium text-gray-900 mb-2">
                     Cân nặng (kg)
                   </label>
                   <input
@@ -293,20 +296,20 @@ export default function ProfilePage() {
                     type="number"
                     step="0.1"
                     {...register('weight')}
-                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 ${
-                      errors.weight ? 'border-red-300 focus:ring-red-500' : 'border-gray-300 focus:ring-pink-500'
+                    className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-1 transition-normal text-sm ${
+                      errors.weight ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : 'border-gray-200 focus:border-gray-900 focus:ring-gray-900'
                     }`}
                     placeholder="30-250"
                     min="30"
                     max="250"
                     disabled={isLoading}
                   />
-                  {errors.weight && <p className="mt-1 text-sm text-red-600">{errors.weight.message}</p>}
+                  {errors.weight && <p className="mt-1.5 text-xs text-red-600">{errors.weight.message}</p>}
                 </div>
               </div>
 
               <div>
-                <label htmlFor="image" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="image" className="block text-sm font-medium text-gray-900 mb-2">
                   Ảnh chân dung toàn thân
                 </label>
                 <input
@@ -314,10 +317,10 @@ export default function ProfilePage() {
                   type="file"
                   accept="image/jpeg,image/jpg,image/png"
                   onChange={handleImageChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500"
+                  className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-1 focus:ring-gray-900 focus:border-gray-900 transition-normal text-sm"
                   disabled={isLoading}
                 />
-                <p className="mt-1 text-xs text-gray-500">
+                <p className="mt-1.5 text-xs text-gray-500">
                   Định dạng: JPG, PNG | Tối đa: 5MB | Khuyến nghị: Tỷ lệ 3:4 hoặc 9:16, tối thiểu 720px
                 </p>
 
@@ -335,7 +338,7 @@ export default function ProfilePage() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-3 rounded-lg font-medium hover:from-pink-600 hover:to-purple-700 transition-all shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-black text-white py-3 rounded-lg text-sm font-medium hover:bg-gray-900 transition-normal disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isLoading ? 'Đang lưu...' : 'Lưu thay đổi'}
               </button>

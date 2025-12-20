@@ -55,13 +55,16 @@ export default function RegisterPage() {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      <main className="pt-20 pb-16">
+      <main className="pt-24 pb-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-md">
-          <div className="bg-white rounded-2xl shadow-lg p-8 mt-8">
-            <h1 className="text-3xl font-bold text-center mb-2 bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">
+          <div className="bg-white border border-gray-200 rounded-lg p-8 md:p-10">
+            <h1 
+              className="text-3xl md:text-4xl font-medium text-center mb-2 text-gray-900"
+              style={{ fontFamily: 'var(--font-display)' }}
+            >
               Đăng ký
             </h1>
-            <p className="text-gray-600 text-center mb-8">Tạo tài khoản mới để bắt đầu</p>
+            <p className="text-sm text-gray-600 text-center mb-8">Tạo tài khoản mới để bắt đầu</p>
 
             {success && (
               <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg">
@@ -77,72 +80,72 @@ export default function RegisterPage() {
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-900 mb-2">
                   Email
                 </label>
                 <input
                   id="email"
                   type="email"
                   {...register('email')}
-                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 ${
+                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-1 transition-normal text-sm ${
                     errors.email
-                      ? 'border-red-300 focus:ring-red-500'
-                      : 'border-gray-300 focus:ring-pink-500'
+                      ? 'border-red-300 focus:ring-red-500 focus:border-red-500'
+                      : 'border-gray-200 focus:border-gray-900 focus:ring-gray-900'
                   }`}
                   placeholder="your@email.com"
                   disabled={isLoading || success}
                 />
                 {errors.email && (
-                  <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
+                  <p className="mt-1.5 text-xs text-red-600">{errors.email.message}</p>
                 )}
               </div>
 
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="password" className="block text-sm font-medium text-gray-900 mb-2">
                   Mật khẩu
                 </label>
                 <input
                   id="password"
                   type="password"
                   {...register('password')}
-                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 ${
+                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-1 transition-normal text-sm ${
                     errors.password
-                      ? 'border-red-300 focus:ring-red-500'
-                      : 'border-gray-300 focus:ring-pink-500'
+                      ? 'border-red-300 focus:ring-red-500 focus:border-red-500'
+                      : 'border-gray-200 focus:border-gray-900 focus:ring-gray-900'
                   }`}
                   placeholder="Tối thiểu 8 ký tự"
                   disabled={isLoading || success}
                 />
                 {errors.password && (
-                  <p className="mt-1 text-sm text-red-600">{errors.password.message}</p>
+                  <p className="mt-1.5 text-xs text-red-600">{errors.password.message}</p>
                 )}
               </div>
 
               <div>
-                <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-900 mb-2">
                   Xác nhận mật khẩu
                 </label>
                 <input
                   id="confirmPassword"
                   type="password"
                   {...register('confirmPassword')}
-                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 ${
+                  className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-1 transition-normal text-sm ${
                     errors.confirmPassword
-                      ? 'border-red-300 focus:ring-red-500'
-                      : 'border-gray-300 focus:ring-pink-500'
+                      ? 'border-red-300 focus:ring-red-500 focus:border-red-500'
+                      : 'border-gray-200 focus:border-gray-900 focus:ring-gray-900'
                   }`}
                   placeholder="Nhập lại mật khẩu"
                   disabled={isLoading || success}
                 />
                 {errors.confirmPassword && (
-                  <p className="mt-1 text-sm text-red-600">{errors.confirmPassword.message}</p>
+                  <p className="mt-1.5 text-xs text-red-600">{errors.confirmPassword.message}</p>
                 )}
               </div>
 
               <button
                 type="submit"
                 disabled={isLoading || success}
-                className="w-full bg-gradient-to-r from-pink-500 to-purple-600 text-white py-3 rounded-lg font-medium hover:from-pink-600 hover:to-purple-700 transition-all shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full bg-black text-white py-3 rounded-lg text-sm font-medium hover:bg-gray-900 transition-normal disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isLoading ? 'Đang xử lý...' : success ? 'Thành công!' : 'Đăng ký'}
               </button>
@@ -151,7 +154,7 @@ export default function RegisterPage() {
             <div className="mt-6 text-center">
               <p className="text-sm text-gray-600">
                 Đã có tài khoản?{' '}
-                <Link to="/login" className="text-pink-600 hover:text-pink-700 font-medium">
+                <Link to="/login" className="text-gray-900 hover:text-gray-700 font-medium transition-normal underline">
                   Đăng nhập
                 </Link>
               </p>

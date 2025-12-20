@@ -39,3 +39,19 @@ const hash = bcrypt.hashSync('password123', 10);
 
 **Prevention:** When adding new user attributes that affect authorization, update JWT payload.
 
+## UI & Design
+
+### Font Loading
+**Error:** Google Fonts (Playfair Display) not loading immediately, causing FOUT (Flash of Unstyled Text).
+
+**Solution:** Use `@import` in CSS with `display=swap` parameter, or preload font in HTML head.
+
+**Prevention:** Always test font loading and consider using font-display: swap for better UX.
+
+### Design Token Consistency
+**Error:** Mixing old design tokens with new Minimal Nordic style, causing inconsistent styling.
+
+**Solution:** Update all components to use new CSS variables and design tokens from guides.md.
+
+**Prevention:** When redesigning, update design guide first, then systematically update all components.
+

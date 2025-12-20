@@ -2,31 +2,31 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="bg-gray-50 border-t border-gray-200">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl py-16">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-12">
           <div className="col-span-1 md:col-span-2">
-            <Link to="/" className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-br from-pink-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">V</span>
+            <Link to="/" className="flex items-center space-x-3 mb-4">
+              <div className="w-8 h-8 bg-black rounded flex items-center justify-center">
+                <span className="text-white font-semibold text-sm">V</span>
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
+              <span className="text-lg font-medium text-gray-900" style={{ fontFamily: 'var(--font-display)' }}>
                 Virtual Try-on
               </span>
             </Link>
-            <p className="text-gray-400 mb-4 max-w-md">
+            <p className="text-sm text-gray-600 mb-6 max-w-md leading-relaxed">
               Trải nghiệm công nghệ thử đồ trực tuyến tiên tiến. Mua sắm thời
               trang thông minh và tiện lợi hơn bao giờ hết.
             </p>
           </div>
 
           <div>
-            <h3 className="text-white font-semibold mb-4">Liên kết</h3>
-            <ul className="space-y-2">
+            <h3 className="text-gray-900 font-medium mb-4 text-sm">Liên kết</h3>
+            <ul className="space-y-3">
               <li>
                 <Link
                   to="/"
-                  className="hover:text-pink-400 transition-colors"
+                  className="text-gray-600 hover:text-gray-900 transition-normal text-sm"
                 >
                   Trang chủ
                 </Link>
@@ -34,7 +34,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/#features"
-                  className="hover:text-pink-400 transition-colors"
+                  className="text-gray-600 hover:text-gray-900 transition-normal text-sm"
                 >
                   Tính năng
                 </Link>
@@ -42,7 +42,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/login"
-                  className="hover:text-pink-400 transition-colors"
+                  className="text-gray-600 hover:text-gray-900 transition-normal text-sm"
                 >
                   Đăng nhập
                 </Link>
@@ -50,7 +50,7 @@ export default function Footer() {
               <li>
                 <Link
                   to="/register"
-                  className="hover:text-pink-400 transition-colors"
+                  className="text-gray-600 hover:text-gray-900 transition-normal text-sm"
                 >
                   Đăng ký
                 </Link>
@@ -59,20 +59,20 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-semibold mb-4">Hỗ trợ</h3>
-            <ul className="space-y-2">
+            <h3 className="text-gray-900 font-medium mb-4 text-sm">Hỗ trợ</h3>
+            <ul className="space-y-3">
               <li>
-                <a href="#" className="hover:text-pink-400 transition-colors">
+                <a href="#" className="text-gray-600 hover:text-gray-900 transition-normal text-sm">
                   Câu hỏi thường gặp
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-pink-400 transition-colors">
+                <a href="#" className="text-gray-600 hover:text-gray-900 transition-normal text-sm">
                   Hướng dẫn sử dụng
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-pink-400 transition-colors">
+                <a href="#" className="text-gray-600 hover:text-gray-900 transition-normal text-sm">
                   Liên hệ
                 </a>
               </li>
@@ -80,7 +80,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
+        <div className="border-t border-gray-200 mt-12 pt-8 text-center text-xs text-gray-500">
           <p>&copy; 2024 Virtual Try-on. All rights reserved.</p>
         </div>
       </div>
