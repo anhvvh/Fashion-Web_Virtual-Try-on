@@ -70,6 +70,7 @@ export const authService = {
       height: newProfile.height,
       weight: newProfile.weight,
       fullBodyImageUrl: newProfile.full_body_image_url,
+      role: newProfile.role || 'user',
       createdAt: newProfile.created_at,
       updatedAt: newProfile.updated_at,
     };
@@ -96,6 +97,7 @@ export const authService = {
     const tokenPayload = {
       id: profile.id,
       email: profile.email,
+      role: profile.role || 'user',
     };
 
     let token;
@@ -116,6 +118,7 @@ export const authService = {
         height: profile.height,
         weight: profile.weight,
         fullBodyImageUrl: profile.full_body_image_url,
+        role: profile.role || 'user',
         createdAt: profile.created_at,
         updatedAt: profile.updated_at,
       },

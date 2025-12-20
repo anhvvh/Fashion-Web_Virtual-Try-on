@@ -7,7 +7,7 @@ export const profileRepository = {
     
     const { data, error } = await supabase
       .from('profiles')
-      .select('id, email, password_hash, display_name, height, weight, full_body_image_url, created_at, updated_at')
+      .select('id, email, password_hash, display_name, height, weight, full_body_image_url, role, created_at, updated_at')
       .eq('email', normalizedEmail)
       .single();
 
@@ -24,7 +24,7 @@ export const profileRepository = {
   async findById(userId) {
     const { data, error } = await supabase
       .from('profiles')
-      .select('id, email, display_name, height, weight, full_body_image_url, created_at, updated_at')
+      .select('id, email, display_name, height, weight, full_body_image_url, role, created_at, updated_at')
       .eq('id', userId)
       .single();
 
@@ -48,7 +48,7 @@ export const profileRepository = {
         email: normalizedEmail,
         password_hash: passwordHash,
       })
-      .select('id, email, display_name, height, weight, full_body_image_url, created_at, updated_at')
+      .select('id, email, display_name, height, weight, full_body_image_url, role, created_at, updated_at')
       .single();
 
     if (error) {
@@ -83,7 +83,7 @@ export const profileRepository = {
       .from('profiles')
       .update(updatePayload)
       .eq('id', userId)
-      .select('id, email, display_name, height, weight, full_body_image_url, created_at, updated_at')
+      .select('id, email, display_name, height, weight, full_body_image_url, role, created_at, updated_at')
       .single();
 
     if (error) {

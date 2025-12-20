@@ -19,6 +19,7 @@ backend/: backend API server.
       - profile_repository.js: profile repository (findByEmail, findById, create, update).
     - middlewares/: auth, error handling, validation.
       - auth.js: JWT authentication middleware.
+      - is_admin.js: admin role authorization middleware.
       - error_handler.js: error handling middleware.
       - validation.js: request validation middleware.
       - upload.js: multer middleware for file uploads.
@@ -61,10 +62,13 @@ frontend/: React frontend application.
   - .env.example: environment variables template.
 README.md: project documentation.
 .gitignore: git ignore file.
-sprints/: user stories and sprint backlog (US-01.md, US-02.md, sprint1.md, PB.md).
+common_errors.md: common errors and solutions documentation.
+sprints/: user stories and sprint backlog (US-01.md, US-02.md, US-03.md, US-04.md, sprint1.md, sprint2.md, PB.md).
 design/: database schema and flow design documentation.
   - schema-sprint1.md: database schema design for Sprint 1.
+  - schema-sprint2.md: database schema design for Sprint 2 (categories, products).
   - rls-policies-guide.md: Row Level Security (RLS) policies guide for profiles table.
+  - rls-catalog-policies-guide.md: RLS policies guide for categories and products tables.
   - 1.1-user-registration-flow.md: user registration flow diagram.
   - 1.2-user-login-flow.md: user login flow diagram.
   - 1.3-profile-get-update-flow.md: profile get/update flow diagram.
@@ -74,6 +78,13 @@ migrations/: SQL migration scripts for database.
   - 002_create_storage_bucket.sql: create storage bucket migration.
   - 003_seed_sample_data.sql: seed sample data for development.
   - 004_enable_rls_profiles.sql: enable RLS and create policies for profiles table.
+  - 005_create_categories_table.sql: create categories table migration (Sprint 2).
+  - 006_create_products_table.sql: create products table migration (Sprint 2).
+  - 007_create_product_images_bucket.sql: create product-images storage bucket (Sprint 2).
+  - 008_seed_catalog_data.sql: seed sample categories and products data (Sprint 2).
+  - 009_enable_rls_catalog.sql: enable RLS and create policies for categories and products (Sprint 2).
+  - 010_add_role_to_profiles.sql: add role column to profiles table (Sprint 2).
+  - 011_seed_admin_user.sql: seed admin user for testing (Sprint 2).
   - README.md: migration guide and instructions.
 PB.md: product backlog.
 

@@ -128,6 +128,7 @@ export const profileService = {
       height: profile.height,
       weight: profile.weight,
       fullBodyImageUrl: profile.full_body_image_url,
+      role: profile.role || 'user',
       createdAt: profile.created_at,
       updatedAt: profile.updated_at,
     };
@@ -171,6 +172,7 @@ export const profileService = {
       height: updatedProfile.height,
       weight: updatedProfile.weight,
       fullBodyImageUrl: updatedProfile.full_body_image_url,
+      role: updatedProfile.role || 'user',
       createdAt: updatedProfile.created_at,
       updatedAt: updatedProfile.updated_at,
     };
